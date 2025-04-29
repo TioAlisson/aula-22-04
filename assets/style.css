@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Henny+Penny&display=swap');
+
+:root {
+  --white: #f4f4f4;
+  --gray: #ece7e7;
+  --purple: #81749c;
+  --blue: #152E57;
+  --orange: #FF5845;
+  --black: #333;
+
+  --font-main: "Homemade Apple", cursive;
+  --font-decorative: 'Henny Penny', cursive;
+
+  --radius-large: 45px;
+  --radius-medium: 14px;
+  --radius-small: 8px;
+
+  --spacing-xl: 120px;
+  --spacing-lg: 50px;
+  --spacing-md: 30px;
+  --spacing-sm: 16px;
+}
+
+/* ===== SISTEMA DE TEMAS ===== */
+[data-theme="light"] {
+  --bg-body: linear-gradient(150deg, rgb(184, 200, 224) 0%, rgb(200, 189, 223) 89%);
+  --text-color: var(--black);
+  --text-color-span: var(--black);
+  --text-color-light: var(--black);
+  --text-color-dark: var(--black);
+  --bg-card: var(--white);
+  --input-bg: var(--gray);
+}
+
+[data-theme="dark"] {
+  --bg-body: linear-gradient(150deg, var(--blue) 0%, var(--purple) 89%);
+  --text-color: var(--white);
+  --text-color-span: var(--white);
+  --text-color-light: var(--white);
+  --text-color-dark: var(--white);
+  --bg-card: var(--black);
+  --input-bg: var(--gray);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: var(--font-main); }
+body { display: flex; justify-content: center; align-items: flex-start; gap: var(--spacing-xl); min-height: 100vh; background: var(--bg-body); background-repeat: no-repeat; background-attachment: fixed; color: var(--text-color); padding: var(--spacing-lg); transition: background 0.3s ease, color 0.3s ease; }
+
+.container { max-width: 1440px; margin: 0 auto; }
+
+.card { background-color: var(--bg-card); width: fit-content; padding: var(--spacing-lg); border-radius: var(--radius-medium); margin-top: var(--spacing-lg); color: var(--text-color); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); }
+.button-theme { position: fixed; top: var(--spacing-lg); right: var(--spacing-lg); font-size: 2rem; background: transparent; border: none; cursor: pointer; color: var(--text-color); z-index: 100; }
+
+.todo-list { display: flex; align-items: center; gap: var(--spacing-md); }
+.todo-list h1 { font-size: 2rem; }
+
+.input-group { display: inline-flex; background-color: var(--input-bg); margin: var(--spacing-md) 0; border-radius: var(--radius-large); overflow: hidden; }
+.input-group input { outline: none; padding: var(--spacing-sm) var(--spacing-md); font-size: 1rem; border: none; background: transparent; min-width: 300px; }
+
+#btn-task { cursor: pointer; border: transparent; background-color: var(--purple); color: var(--white); padding: var(--spacing-sm) var(--spacing-lg); border-radius: var(--radius-large); font-size: 1.25rem; font-weight: 700; transition: opacity 0.2s; }
+#btn-task:hover { opacity: 0.9; }
+
+.filters { display: flex; justify-content: space-between; gap: var(--spacing-sm); }
+.filters button { background-color: var(--orange); padding: var(--spacing-sm) var(--spacing-md); border-radius: var(--radius-small); color: var(--white); font-size: 1rem; border: none; cursor: pointer; transition: opacity 0.2s; }
+.filters button:hover { opacity: 0.8; }
+
+#text { margin-top: var(--spacing-lg); }
+#text h1 { font-size: 6rem; color: var(--text-color-span); font-family: var(--font-decorative); line-height: 1.1; }
+#text span { color: var(--orange); font-weight: 900; }
+
+ul { list-style: none; }
+li { display: flex; justify-content: space-between; align-items: center; }
+.complete, .edit, .delete { background-color: transparent; border: transparent; font-size: 30px; cursor: pointer; margin-top: var(--spacing-sm); }
+.task-text { min-width: 110px; max-width: 110px; }
+
+.toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #FF0030;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease-in-out;
+    font-size: 16px;
+    z-index: 9999;
+}
+
+.toast.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+.filter.active {
+    background-color: var(--btn-bg);
+    color: var(--white);
+    background-color: var(--blue);
+}
+
+
+
+@media (max-width: 1200px) {
+  body { flex-direction: column; align-items: center; gap: var(--spacing-lg); padding: var(--spacing-md); }
+  .card { margin-top: var(--spacing-lg); }
+  #text h1 { font-size: 4.5rem; text-align: center; }
+}
+
+@media (max-width: 768px) {
+  #text h1 { font-size: 3rem; }
+  .input-group { flex-direction: column; min-width: 100%; }
+  .input-group input { min-width: 100%; }
+  #btn-task { width: 100%; border-radius: 0 0 var(--radius-large) var(--radius-large); }
+}
