@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pr-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do List</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body data-theme="light">
+    <section class="card">
+        <div class="todo-list">
+            <h1>To-do List</h1>
+            <img src="assets/imgs/icone.svg" alt="Icone">              
+        </div>
+        <button id="toggle-theme" class="button-theme"></button>
+        <section>
+            <div class="input-group">
+                <input type="text" id="task-input" placeholder="Add your task">
+                <button id="btn-task">Add</button>
+            </div>
+        </section>
+
+        <section class="filters">
+            <button data-filter="all" class="filter active">Todos</button>
+            <button data-filter="pending" class="filter">Pendentes</button>
+            <button data-filter="completed" class="filter">Concluidos</button>
+        </section>
+
+        <div>
+            <ul id="task-list">
+
+            </ul>
+        </div>
+
+    </section>
+    <section id="text">
+        <h1>Build <br><span>To-Do List</span> <br>With JavaScript</h1>
+    </section>
+    <div id="toast" class="toast">Alteração feita ✅</div>
+    <script src="assets/script.js"></script>
+</body>
+
+</html>
